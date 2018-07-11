@@ -1,7 +1,7 @@
 /*1. Setting up
 complete, but it took a very long time
 */
-
+conn chinook/p4ssw0rd;
 
 -- 2.1 SELECT 
 
@@ -18,3 +18,5 @@ SELECT firstname FROM Customer ORDER BY city ASC;
 INSERT INTO Genre (GENREID) VALUES (26)
 INSERT INTO Genre (GENREID) VALUES (27)
 --INSERT INTO Employee 
+
+exit;
