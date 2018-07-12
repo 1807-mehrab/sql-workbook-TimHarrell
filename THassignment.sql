@@ -6,17 +6,29 @@ conn chinook/p4ssw0rd;
 -- 2.1 SELECT 
 
 SELECT * FROM Employee;
-SELECT * FROM Employee WHERE lastname='KING';
-SELECT * FROM Employee WHERE firstname='Andrew' AND REPORTSTO=NULL;
+SELECT * FROM Employee WHERE lastname='King';
+SELECT * FROM Employee WHERE firstname='Andrew' AND REPORTSTO IS NULL;
 
 -- 2.2 ORDER BY 
 
-SELECT * FROM ALBUM ORDER BY title; -- don't need DESC because DESC is default
+SELECT * FROM ALBUM ORDER BY title DESC; 
 SELECT firstname FROM Customer ORDER BY city ASC;
 
 --2.3 INSERT INTO
-INSERT INTO Genre (GENREID) VALUES (26)
-INSERT INTO Genre (GENREID) VALUES (27)
---INSERT INTO Employee 
+INSERT INTO Genre (GENREID, NAME) VALUES (26, 'Symphonic Black Metal');
+INSERT INTO Genre (GENREID, NAME) VALUES (27, 'Jpop');
+INSERT INTO Employee (EMPLOYEEID, FIRSTNAME, LASTNAME) VALUES (9, 'George', 'Lopez');
+INSERT INTO Employee (EMPLOYEEID, FIRSTNAME, LASTNAME) VALUES (10, 'Will', 'Smith');
+INSERT INTO Customer (CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL) VALUES (60, 'LARS', 'ULRICH', 'lars.ulrich@metallica.com');
+INSERT INTO Customer (CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL) VALUES (61, 'BRUCE', 'DICKINSON', 'bruce.dicksinson@ironmaiden.com');
+--SELECT * FROM Customer;
+--SELECT * FROM Employee;
+--SELECT * FROM Genre;
 
+
+--2.4
+UPDATE Customer SET FIRSTNAME='Robert', LASTNAME='Walter' WHERE FIRSTNAME='Aaron' AND LASTNAME='Mitchell';
+UPDATE Artist SET NAME='CCR' WHERE NAME='Creedence Clearwater Revival';
+SELECT * FROM Customer WHERE FIRSTNAME='Robert' AND LASTNAME='Walter';
+SELECT * FROM Artist WHERE NAME ='CCR';
 exit;
