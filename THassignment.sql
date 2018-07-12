@@ -26,9 +26,15 @@ INSERT INTO Customer (CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL) VALUES (61, 'BRUCE
 --SELECT * FROM Genre;
 
 
---2.4
+--2.4 UPDATE
 UPDATE Customer SET FIRSTNAME='Robert', LASTNAME='Walter' WHERE FIRSTNAME='Aaron' AND LASTNAME='Mitchell';
 UPDATE Artist SET NAME='CCR' WHERE NAME='Creedence Clearwater Revival';
 SELECT * FROM Customer WHERE FIRSTNAME='Robert' AND LASTNAME='Walter';
 SELECT * FROM Artist WHERE NAME ='CCR';
+
+--2.5 LIKE
+SELECT * FROM Invoice WHERE BillingAddress LIKE 'T%';
+
+--2.6 BETWEEN
+
 exit;
