@@ -71,6 +71,7 @@ DECLARE
     X NUMBER;
 BEGIN
     X:= curr_time;
+    DBMS_OUTPUT.PUT_LINE('num= ' || X);
 END;
 /
 
