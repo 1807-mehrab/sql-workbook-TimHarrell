@@ -36,5 +36,42 @@ SELECT * FROM Artist WHERE NAME ='CCR';
 SELECT * FROM Invoice WHERE BillingAddress LIKE 'T%';
 
 --2.6 BETWEEN
+SELECT * FROM Invoice WHERE INVOICEID BETWEEN 15 AND 50;
+SELECT * FROM Employee WHERE HIREDATE BETWEEN '01-JUN-2003' AND '01-MAR-2004';
+
+--2.7 DELETE -- is there an issue without deleting the children. there is only 1 row deleted
+ALTER TABLE Invoice
+    DROP CONSTRAINT FK_InvoiceCustomerId;
+ALTER TABLE Invoice 
+    ADD CONSTRAINT FK_InvoiceCustomerId
+    FOREIGN KEY (CustomerId) REFERENCES Customer (CustomerId)
+    ON DELETE CASCADE; 
+
+ALTER TABLE InvoiceLine 
+    DROP CONSTRAINT FK_INVOICELINEINVOICEID;
+ALTER TABLE InvoiceLine 
+    ADD CONSTRAINT FK_InvoiceLineInvoiceId
+    FOREIGN KEY (InvoiceId) REFERENCES Invoice (InvoiceId)
+    ON DELETE CASCADE;
+    
+DELETE FROM Customer WHERE FirstName='Robert' AND LastName='Walter';
+
+
+
+--3.1 functions and system
+CREATE OR REPLACE FUNCTION curr_time
+    RETURN NUMBER AS Z NUMBER;
+BEGIN
+    Z:= 1;
+    RETURN Z;
+END;
+/
+
+DECLARE
+    X NUMBER;
+BEGIN
+    X:= curr_time;
+END;
+/
 
 exit;
